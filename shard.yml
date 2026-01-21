@@ -1,0 +1,17 @@
+name: octa
+version: 0.1.0
+
+authors:
+  - initdc <initd@outlook.com>
+
+targets:
+  octa:
+    main: src/octa.cr
+
+# dependencies:
+#   ameba:
+#     github: crystal-ameba/ameba
+
+crystal: ~> 1.17
+
+license: MPL-2.0
