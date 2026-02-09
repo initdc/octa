@@ -1,6 +1,6 @@
 # <img alt="octa logo" src="art/logo.png" role="img" style="width: 16%; aspect-ratio: 1; min-width: 80px; vertical-align: middle; margin-right: 20px; cursor: pointer;"> octa
 
-A source to source transpiler, ship crystal to all ruby supported platform
+A source to source transpiler, ship crystal to all ruby supported platform. Like Prism for Ruby!
 
 ## Installation
 
