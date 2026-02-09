@@ -9,3 +9,6 @@ lex FILE:
 
 parse FILE:
   shards run -- parse {{ FILE }}
+
+cr-rb FILE:
+  shards run -- cr-rb {{ FILE }}

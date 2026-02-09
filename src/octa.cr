@@ -1,5 +1,6 @@
 require "./octa/lexer"
 require "./octa/parser"
+require "./octa/transpiler"
 
 module Octa
   VERSION = "0.1.0"
@@ -12,6 +13,7 @@ module Octa
       when "parse"
         ARGV[1]? ? Octa.parse(ARGV[1]) : puts "Please input filename"
       when "cr-rb"
+        ARGV[1]? ? Octa.cr_rb(ARGV[1]) : puts "Please input filename"
       else
         puts <<-EOF
         Usage: octa <command> [args]

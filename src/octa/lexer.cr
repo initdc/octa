@@ -3,14 +3,7 @@ require "./ameba/tokenizer"
 
 module Octa
   def self.lex(filename)
-    lexer = Crystal::Lexer.new(File.read(filename))
-    lexer.filename = filename
-    lexer.doc_enabled = false
-    lexer.comments_enabled = false
-    lexer.count_whitespace = true
-    lexer.wants_raw = true
-    lexer.slash_is_regex = true
-    lexer.wants_def_or_macro_name = false
+    lexer = Lexer.new(filename)
 
     Ameba::Tokenizer.new(lexer).run do |token|
       Lexer.print_token(token, lexer.token_end_location)
@@ -18,6 +11,18 @@ module Octa
   end
 
   class Lexer
+    def self.new(filename)
+      lexer = Crystal::Lexer.new(File.read(filename))
+      lexer.filename = Path.new(Dir.current, filename).to_s
+      lexer.doc_enabled = false
+      lexer.comments_enabled = false
+      lexer.count_whitespace = true
+      lexer.wants_raw = true
+      lexer.slash_is_regex = true
+      lexer.wants_def_or_macro_name = false
+      lexer
+    end
+
     def self.print_token(token, end_local)
       puts(sprintf(
         "%-27s (%s,%s)-(%s,%s) %s",
