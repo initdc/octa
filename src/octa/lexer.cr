@@ -1,12 +1,13 @@
 require "compiler/crystal/syntax"
-require "./ameba/tokenizer"
 
 module Octa
   def self.lex(filename)
     lexer = Lexer.new(filename)
 
-    Ameba::Tokenizer.new(lexer).run do |token|
+    loop do
+      token = lexer.next_token
       Lexer.print_token(token, lexer.token_end_location)
+      break if token.type.eof?
     end
   end
 
